@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Frog Position Example</title>
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        
+        <div id="lilypad" class="label image-frame relative">
+            <div id="frog" class="label image-frame absolute pulse"></div>
+            <button id="toggle">Trocar</button>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                document.getElementById('toggle').addEventListener('click', function() {
+                    var lilypad = document.getElementById('lilypad');
+                    lilypad.className = lilypad.classList.contains('relative') ? 'label image-frame static ' : 'label image-frame relative';
+                });
+            });
+        </script>
+
+    </body>
+</html>

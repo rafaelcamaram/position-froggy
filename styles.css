@@ -1,24 +1,32 @@
 body {
     background-color: #0BBBFB;
+
     font-family: 'Lato', Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    counter-reset: section;
 }
+
+h1 {
+    margin: 0;
+}
+
 #frog {
     width:100px;
     height: 100px;
-    margin-top: 100px;
+    justify-content: center;
     background-image: url(images/frog-green.svg);
-    
 }
 
 .label {
     color: white;
     text-align: center;
 }
+
 .image-frame {
     background-size: 60% 60%;
     background-position: center center;
@@ -48,6 +56,10 @@ body {
     position: relative;
 }
 
+.relative #frog {
+    margin-top: 100px;
+}
+
 .relative::before {
     content: 'relative';
 }
@@ -59,18 +71,6 @@ body {
 
 .absolute::before {
     content: 'absolute';
-}
-
-#toggle {
-    margin-top: 10px;
-    border-radius: 40px;
-    border-color: transparent;
-    background-color: darkgreen;
-    color: lightgreen;
-    font-weight: bold;
-    padding: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
 }
 
 .pulse {
@@ -101,4 +101,84 @@ body {
         -webkit-transform: scale3d(1,1,1);
         transform: scale3d(1,1,1);
     }
+}
+
+#code-editor {
+    width: 25%;
+    height: auto;
+    max-width: 20rem;
+
+    background-color: #263238;
+    color: white;
+
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 30px;
+
+    position: absolute;
+    top: 30px;
+    left: 30px;
+
+    border-radius: 5px;
+
+    counter-reset: step;
+    counter-increment: step 0;
+    outline: none;
+}
+
+#code-editor input {
+    background-color: #303f47;
+    color: white;
+   
+    border-radius: 5px;
+    border-color: transparent;
+
+    margin-right: 5px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#code-editor p {
+    position: relative;
+    
+    margin: 0.2rem;
+    margin-left: 0;
+    
+    font-family: monospace;
+    font-weight: normal;
+    line-height: normal;
+    
+    display: block;
+    white-space: pre;
+}
+
+#code-editor p::before {
+    margin: 0.2rem;
+    margin-left: 0px;
+    
+    color: #50646D;
+    
+    counter-increment: section;
+    content: counter(section)".  ";    
+}
+
+#code-editor #description {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    
+    font-weight: normal;
+    font-size: 11pt;
+    color: #a4afb4;
+}
+
+#code-editor .highlight {
+    color: #cedce3;    
+    text-decoration: underline;
+    font-weight: 400;
+    
+    padding-left: 2px;
+    padding-right: 2px;
 }

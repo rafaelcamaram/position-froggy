@@ -5,18 +5,37 @@
         <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
     <body>
-        
+        <div id="code-editor">
+            <h1>Position Froggy</h1>
+            <div id="description">Experimente os valores <span class="highlight">static</span> 
+            e <span class="highlight">relative</span> para o elemento lilypad <i>(vitória régia) </i> 
+            a fim de entender o funcionamento da propriedade <span class="highlight">position</span> 
+            do CSS.</div>
+            
+            <p>#frog {</p> 
+            <p>    position: absolute;</p>
+            <p>}</p>
+            <p></p>
+            <p>#lilypad {</p>
+            <p>    position: <input id="answer-input" maxlength="8" size="8"/>;</p>
+            <p>}</p>
+        </div>
         <div id="lilypad" class="label image-frame relative">
             <div id="frog" class="label image-frame absolute pulse"></div>
-            <button id="toggle">Trocar</button>
         </div>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                document.getElementById('toggle').addEventListener('click', function() {
-                    var lilypad = document.getElementById('lilypad');
-                    lilypad.className = lilypad.classList.contains('relative') ? 'label image-frame static ' : 'label image-frame relative';
-                });
+            document.getElementById('answer-input').addEventListener("keyup", function (e) {
+                var inputValue = this.value.trim();
+                var lilypad = document.getElementById('lilypad');
+
+                if(inputValue === 'relative') {
+                    lilypad.className = 'label image-frame relative'; 
+                } else if(inputValue === 'static') {
+                    lilypad.className = 'label image-frame static';
+                } else {
+                    lilypad.className = 'label image-frame relative';                     
+                }
             });
         </script>
 
